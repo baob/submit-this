@@ -4,6 +4,8 @@
 
 Do not use [RTM api](https://slack.dev/node-slack-sdk/rtm-api) it appears to be deprecated and use [events api](https://slack.dev/node-slack-sdk/events-api) to capture messages instead.
 
+[12 Factor](https://12factor.net/) principles
+
 ## Dependencies
 
 ### ngrok

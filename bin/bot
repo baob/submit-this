@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+/* 
+    shell invocation
+    will need babel transform here
+*/
+
+const app = require('../src/app')
+
+app()
