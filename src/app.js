@@ -1,4 +1,5 @@
 const { createEventAdapter } = require('@slack/events-api');
+const handleAppMention = require('./handleAppMention');
 const dotenv = require('dotenv')
 
 const app = () => {
@@ -11,13 +12,12 @@ const app = () => {
     const slackEvents = createEventAdapter(slackSigningSecret);
 
     // Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
-    slackEvents.on('app_mention', (event) => {
-        console.log(`Received a app_mention event: user ${event.user} in channel ${event.channel} says ${event.text}`);
-    });
+    slackEvents.on('app_mention', handleAppMention);
 
     (async () => {
         const server = await slackEvents.start(port);
         console.log(`Listening for events on ${server.address().port}`);
+        console.log('---- sever', server)
     })();
 
 }
