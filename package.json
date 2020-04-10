@@ -5,5 +5,8 @@
   "main": "index.js",
   "author": "baob <coder@onesandthrees.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@slack/events-api": "^2.3.2"
+  }
 }
