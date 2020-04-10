@@ -13,8 +13,8 @@ const handleAppMention = async (event, web) => {
     const response = buildResponse(template, data)
 
     const result = await web.chat.postMessage({
-        text: response,
-        channel: event.channel,
+        text: `<@${event.user}> ${response}`,
+        channel: event.channel
     });
 
     console.log('result of postMessage', result)
