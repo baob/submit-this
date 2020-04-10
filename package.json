@@ -1,0 +1,9 @@
+{
+  "name": "submit-this",
+  "version": "0.1.0",
+  "description": "slack bot to generate \"submission\" urls",
+  "main": "index.js",
+  "author": "baob <coder@onesandthrees.com>",
+  "license": "MIT",
+  "private": false
+}
