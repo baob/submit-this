@@ -32,8 +32,10 @@ const app = () => {
     const web = new WebClient(token);
 
 
+    const handleAppMentionLocal = (web) => (event) => handleAppMention(event, web)
+
     // Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
-    slackEvents.on('app_mention', handleAppMention);
+    slackEvents.on('app_mention', handleAppMentionLocal(web));
 
     (async () => {
         const server = await slackEvents.start(port);
