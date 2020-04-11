@@ -5,6 +5,8 @@
 Include something like https://slack.dev/node-slack-sdk/tutorials/local-development or https://slack.dev/node-slack-sdk/events-api not forgetting
 bot scopes and event subscriptions
 
+## TWO templates ? link and message ?
+
 ## add app objectives to readme
 
 ## add app configuration to README
