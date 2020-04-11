@@ -1,7 +1,5 @@
 # TODO
 
-## TWO templates ? link and message ?
-
 ## parse out the links
 
 ## bot introduces itself (software name and version) on channel join and '?'

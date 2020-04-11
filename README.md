@@ -25,7 +25,7 @@ Clone [this repo](https://github.com/baob/submit-this)
 
 In your repo's directory, run `yarn` or `npm install` according to your preference.
 
-Take a copy of `.env.sample` called `.env`
+Take a copy of `.env.example` called `.env`
 
 ### Configure Slack
 
@@ -40,7 +40,8 @@ For production (NODE_ENV=production) you will need to set these environment vari
 Configure more environment variables (differently in development and production as above)
 
 - PORT - the port your server will run on
-- MESSAGE_TEMPLATE - to customise the message and URL created by the bot.  
+- SUBMIT_MESSAGE_TEMPLATE - to customise the complete message created by the bot.  
+- SUBMIT_LINK_TEMPLATE - to customise the link created by the bot.  
 
 You may find [this formatting guide](https://api.slack.com/reference/surfaces/formatting#linking-urls) useful ... most importantly, it shows how to craft a message with a url linked from alternative text, since this bot will likely be creating long links.
 
