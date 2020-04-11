@@ -7,8 +7,6 @@ bot scopes and event subscriptions
 
 ## TWO templates ? link and message ?
 
-## add app objectives to readme
-
 ## add app configuration to README
 
 ## shorten the URL somehow
