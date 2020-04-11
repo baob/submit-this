@@ -1,5 +1,9 @@
 # TODO
 
+## More explanation in README examples/screenshots
+
+## contributors guide in README (after lin/tests ?)
+
 ## parse out the links
 
 ## bot introduces itself (software name and version) on channel join and '?'

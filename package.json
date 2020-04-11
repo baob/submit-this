@@ -4,6 +4,10 @@
   "description": "slack bot to generate \"submission\" urls",
   "main": "index.js",
   "author": "baob <coder@onesandthrees.com>",
+  "homepage": "https://github.com/baob/submit-this",
+  "bugs": {
+    "url": "https://github.com/baob/submit-this/issues"
+  },
   "license": "MIT",
   "private": false,
   "dependencies": {
