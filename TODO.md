@@ -12,6 +12,6 @@
 
 ## on a slack thread, takes the main message of the thread if no content
 
-## editorconfig / vscode
+## vscode
 
 ## flow/lint/prettier
