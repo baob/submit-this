@@ -7,8 +7,6 @@ bot scopes and event subscriptions
 
 ## add app objectives to readme
 
-## handle promise rejections
-
 ## add app configuration to README
 
 ## shorten the URL somehow

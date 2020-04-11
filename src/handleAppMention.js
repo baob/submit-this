@@ -12,13 +12,14 @@ const handleAppMention = async (event, web) => {
 
     const response = buildResponse(template, data)
 
-    const result = await web.chat.postMessage({
-        text: `<@${event.user}> ${response}`,
-        channel: event.channel
-    });
-
-    console.log('result of postMessage', result)
-
+    try {
+        await web.chat.postMessage({
+            text: `<@${event.user}> ${response}`,
+            channel: event.channel
+        });
+    } catch (err) {
+        console.log('slack web api rejected the chat.postMessage request with', err)
+    };
 };
 
 module.exports = handleAppMention
