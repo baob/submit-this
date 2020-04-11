@@ -62,7 +62,7 @@ Use [12 Factor](https://12factor.net/) principles
 
 (useful for development)
 
-Free service. Can install via homebrew (https://gist.github.com/wosephjeber/aa174fb851dfe87e644e)
+Free service. Can install via homebrew. See [this gist](https://gist.github.com/wosephjeber/aa174fb851dfe87e644e) for help.
 
 [Getting started with ngrok](https://dashboard.ngrok.com/get-started)
 
