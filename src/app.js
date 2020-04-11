@@ -5,7 +5,10 @@ const dotenv = require('dotenv')
 
 const app = () => {
 
-    dotenv.config(); // TODO: later, we'll need to bypass this for NODE_ENV production
+    const nodeEnv = process.env.NODE_ENV || 'development';
+    if (nodeEnv != 'production') {
+        dotenv.config();
+    }
 
     /*
         Set up the Event Listener
