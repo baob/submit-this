@@ -2,17 +2,25 @@
 
 ## More explanation in README examples/screenshots
 
-## contributors guide in README (after lin/tests ?)
+## contributors guide in README
 
-## parse out the links
+## more tests
 
-## tests
+## CI on heroku
 
 ## on a slack thread, takes the main message of the thread if no content
 
+## Exploit OpenGraph
+
 ## vscode
 
-## flow/lint/prettier
+test coverage and gutters
+
+## flow
+
+## Consider converting to bolt
+
+[Bolt](https://slack.dev/bolt/tutorial/getting-started)
 
 ## make the app respond to 'url_verify'
 
