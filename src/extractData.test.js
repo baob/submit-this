@@ -5,14 +5,26 @@ describe('extractData()', () => {
 
     beforeEach(() => {
         event = {
-            text: '<@Ueieieiieies> hello robot',
+            text:
+                '<@UserForRobot> hello robot with a link https://example.website/with/a/path blah blah ',
+            user: 'UtheRealUser',
         };
     });
 
-    const returnValue = () => {
-        extractData(event);
-    };
+    const returnValue = () => extractData(event);
+
     it('does not throw errors', () => {
         expect(returnValue).not.toThrow();
+    });
+
+    it('extracts the user that sent the message', () => {
+        expect(returnValue()).toHaveProperty('at_user', '<@UtheRealUser>');
+    });
+
+    it('returns the message without the @mention of the bot user', () => {
+        expect(returnValue()).toHaveProperty(
+            'message',
+            'hello robot with a link https://example.website/with/a/path blah blah'
+        );
     });
 });
