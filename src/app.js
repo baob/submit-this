@@ -21,7 +21,7 @@ const app = () => {
 
     // All errors in listeners are caught here. If this weren't caught, the program would terminate.
     slackEvents.on('error', (error) => {
-        console.log(error.name); // TypeError
+        console.log(error); // TypeError
     });
 
     /*
