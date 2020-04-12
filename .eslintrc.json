@@ -14,7 +14,9 @@
     },
     "settings": {
     },
+    "plugins": ["prettier"],
     "rules": {
+        "prettier/prettier": "error",
         "no-extra-semi": 0
     }
 }
