@@ -1,13 +1,12 @@
 
 const extractData = (event) => {
-    const userMatch = event.text.trim().match(/^(<@U.{10,12}>)/i)
-    const text = (userMatch ? event.text.replace(userMatch[0], '') : event.text).trim();
-
-    // console.log('userMatch:', userMatch)
-    // console.log('text:', text)
+    const botUserMatch = event.text.trim().match(/^(<@U.{10,12}>)/i)
+    const text = (botUserMatch ? event.text.replace(botUserMatch[0], '') : event.text).trim();
+    let atUser = `<@${event.user}>`
 
     return {
-        message: text
+        message: text,
+        at_user: atUser
     }
 };
 
