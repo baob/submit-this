@@ -13,7 +13,7 @@ Secondly, you'll need to make what slack calls 'an app' despite the name it does
 - Create an 'app'
 - add 'Bots' under features and functionality
 - Install the app into your slack workspace
-- again under features and functionality, add 'event subscriptions' for the event 'app_mentions'
+- again under features and functionality, add 'event subscriptions' for the event 'app_mentions' and 'member_joined_channel'
 - lastly under features and functionality, got to permissions and add 'chat:write' ('app_mentions:read' should have been added for you already)
 - now re-install the app in your workspace, because adding the event subscriptions changed the permissions.
 
