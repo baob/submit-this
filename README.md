@@ -13,8 +13,8 @@ Secondly, you'll need to make what slack calls 'an app' despite the name it does
 - Create an 'app'
 - add 'Bots' under features and functionality
 - Install the app into your slack workspace
-- again under features and functionality, add 'event subscriptions' for the event 'app_mentions' and 'member_joined_channel'
-- lastly under features and functionality, got to permissions and add 'chat:write' ('app_mentions:read' should have been added for you already)
+- under features and functionality, got to permissions and add under 'Bot Token Scopes' these scopes 'app_mentions:read', 'channels:read', 'chat:write', 'groups:read'
+- again under features and functionality, go to 'event subscriptions' and under 'Subscribe to bot events' these events 'app_mentions' and 'member_joined_channel'
 - now re-install the app in your workspace, because adding the event subscriptions changed the permissions.
 
 The best guide I can find for this is [Developing Slack apps locally](https://slack.dev/node-slack-sdk/tutorials/local-development), most of which also applies to a production environment.
