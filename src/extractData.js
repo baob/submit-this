@@ -6,9 +6,14 @@ const extractData = (event) => {
     ).trim();
     let atUser = `<@${event.user}>`;
 
+    let linkMatch = event.text
+        .trim()
+        .match(/(http|https):\/\/[a-zA-Z0-9\-.]+(\/\S*)?/);
+
     return {
         message: text,
         at_user: atUser,
+        link: linkMatch[0],
     };
 };
 

@@ -27,4 +27,11 @@ describe('extractData()', () => {
             'hello robot with a link https://example.website/with/a/path blah blah'
         );
     });
+
+    it('returns the link embedded in the message', () => {
+        expect(returnValue()).toHaveProperty(
+            'link',
+            'https://example.website/with/a/path'
+        );
+    });
 });
