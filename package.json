@@ -11,6 +11,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {

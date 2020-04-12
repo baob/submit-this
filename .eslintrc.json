@@ -5,7 +5,9 @@
         "es6": false
       },
     "extends": [
-      "eslint:recommended"
+        "plugin:jest/style",
+        "plugin:jest/recommended",
+        "eslint:recommended"
     ],
     "globals": {},
     "parserOptions": {
@@ -14,9 +16,19 @@
     },
     "settings": {
     },
-    "plugins": ["prettier"],
+    "plugins": [
+        "prettier",
+        "jest"
+    ],
     "rules": {
         "prettier/prettier": "error",
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "warn",
+        "jest/no-identical-title": "warn",
+        "jest/no-test-prefixes": "warn",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+        "jest/prefer-todo": "warn",
         "no-extra-semi": 0
     }
 }
