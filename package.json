@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-      "lint": "eslint ."
+    "lint": "eslint ."
   },
   "dependencies": {
     "@slack/events-api": "^2.3.2",
@@ -20,6 +20,7 @@
     "nodemon": "^2.0.3"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "prettier": "2.0.4"
   }
 }
