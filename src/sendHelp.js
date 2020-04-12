@@ -1,5 +1,7 @@
 const sendHelp = async (event, web) => {
-    console.log(`sending Help: user ${event.user} in channel ${event.channel} says ${event.text}`);
+    console.log(
+        `sending Help: user ${event.user} in channel ${event.channel} says ${event.text}`
+    );
     // console.log('---- event:', event);
     // console.log('---- web:', web);
 
@@ -9,18 +11,21 @@ const sendHelp = async (event, web) => {
         'Alternatively try sending me these commands:',
         '   help',
         '   ?',
-        '   who are you'
+        '   who are you',
     ].join('\n');
 
     console.log('---- response:', response);
     try {
         await web.chat.postMessage({
             text: `<@${event.user}> ${response}`,
-            channel: event.channel
+            channel: event.channel,
         });
     } catch (err) {
-        console.log('slack web api rejected the chat.postMessage request with', err)
-    };
+        console.log(
+            'slack web api rejected the chat.postMessage request with',
+            err
+        );
+    }
 };
 
-module.exports = sendHelp
+module.exports = sendHelp;

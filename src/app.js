@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 const handleChannelJoined = require('./handleChannelJoined');
 
 const app = () => {
-
     const nodeEnv = process.env.NODE_ENV || 'development';
     if (nodeEnv != 'production') {
         dotenv.config();
@@ -31,16 +30,17 @@ const app = () => {
     const token = process.env.SLACK_TOKEN;
     const web = new WebClient(token);
 
-
     /*
         Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
     */
 
-    const handleAppMentionCallback = (web) => (event) => handleAppMention(event, web)
+    const handleAppMentionCallback = (web) => (event) =>
+        handleAppMention(event, web);
     slackEvents.on('app_mention', handleAppMentionCallback(web));
 
     // https://api.slack.com/events/member_joined_channel
-    const handleChannelJoinedCallback = (web) => (event) => handleChannelJoined(event, web)
+    const handleChannelJoinedCallback = (web) => (event) =>
+        handleChannelJoined(event, web);
     slackEvents.on('member_joined_channel', handleChannelJoinedCallback(web));
 
     // finally, start listening for events
@@ -52,7 +52,6 @@ const app = () => {
         console.log(`Listening for events on ${server.address().port}`);
         // console.log('---- server', server)
     })();
+};
 
-}
-
-module.exports = app
+module.exports = app;
