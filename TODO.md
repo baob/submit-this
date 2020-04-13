@@ -12,15 +12,23 @@
 
 ## Exploit OpenGraph
 
+possibly using [openGraphScraper](https://github.com/jshemas/openGraphScraper) ( guide [here](https://davidwalsh.name/open-graph-data-nodejs) )
+
 ## vscode
 
 test coverage and gutters
 
 ## flow
 
-## Consider converting to bolt
+can flow do anything useful (matching parameter lists ?) without needing babel.
+
+See [this](https://medium.com/javascript-scene/you-might-not-need-typescript-or-static-types-aa7cb670a77b)
+
+## Consider converting to bolt or botkit
 
 [Bolt](https://slack.dev/bolt/tutorial/getting-started)
+
+[botkit](https://botkit.ai/docs/v4/core.html)
 
 ## make the app respond to 'url_verify'
 

@@ -54,7 +54,7 @@ You may find [this formatting guide](https://api.slack.com/reference/surfaces/fo
 
 Do not use [RTM api](https://slack.dev/node-slack-sdk/rtm-api) it appears to be deprecated and use [events api](https://slack.dev/node-slack-sdk/events-api) to capture messages instead.
 
-Use [12 Factor](https://12factor.net/) principles
+Use [12 Factor](https://12factor.net/) principles. Application to node: [The practical JS 12 factor application](https://medium.com/@djangoshelton/the-practical-js-12-factor-application-iii-config-e6a5c9826c52)
 
 ## Dependencies
 
