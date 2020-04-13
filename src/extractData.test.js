@@ -1,17 +1,23 @@
 const extractData = require('./extractData');
 
 describe('extractData()', () => {
-    let event;
+    let eventText;
+    let eventUser;
+
+    const event = () => {
+        return {
+            text: eventText,
+            user: eventUser,
+        };
+    };
 
     beforeEach(() => {
-        event = {
-            text:
-                '<@UserForRobot> hello robot with a link https://example.website/with/a/path blah blah ',
-            user: 'UtheRealUser',
-        };
+        eventText =
+            '<@UserForRobot> hello robot with a link https://example.website/with/a/path blah blah ';
+        eventUser = 'UtheRealUser';
     });
 
-    const returnValue = () => extractData(event);
+    const returnValue = () => extractData(event());
 
     it('does not throw errors', () => {
         expect(returnValue).not.toThrow();
@@ -33,5 +39,12 @@ describe('extractData()', () => {
             'link',
             'https://example.website/with/a/path'
         );
+    });
+
+    describe('with a message with no link', () => {
+        it('gives undefined link', () => {
+            eventText = '<@UserForRobot> hello robot with no link blah blah ';
+            expect(returnValue()).toHaveProperty('link', undefined);
+        });
     });
 });
