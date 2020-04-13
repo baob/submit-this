@@ -23,6 +23,7 @@
     ],
     "rules": {
         "prettier/prettier": "error",
+        "no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "warn",
         "jest/no-identical-title": "warn",
