@@ -47,4 +47,11 @@ describe('extractData()', () => {
             expect(returnValue()).toHaveProperty('link', undefined);
         });
     });
+
+    describe('with a message with a link in slack markup', () => {
+        it('returns the link embedded in the message', () => {
+            eventText = '<@U0E0G11N9J5>  <http://facebook.com|facebook.com>';
+            expect(returnValue()).toHaveProperty('link', 'http://facebook.com');
+        });
+    });
 });
