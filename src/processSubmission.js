@@ -10,6 +10,7 @@ const processSubmission = async (event, web) => {
     // console.log('---- web:', web);
 
     const data = extractData(event);
+    console.log('---- extracted data from message:', data);
 
     const messageTemplate = process.env.SUBMIT_MESSAGE_TEMPLATE;
     const linkTemplate = process.env.SUBMIT_LINK_TEMPLATE;
