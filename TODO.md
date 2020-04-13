@@ -8,6 +8,8 @@
 
 ## CI on heroku
 
+## Changelog
+
 ## on a slack thread, takes the main message of the thread if no content
 
 ## Exploit OpenGraph
