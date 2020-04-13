@@ -14,7 +14,7 @@ const extractData = (event) => {
 
     return {
         message: text,
-        at_user: atUser,
+        atUser,
         link,
     };
 };
