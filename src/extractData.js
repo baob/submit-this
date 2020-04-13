@@ -10,7 +10,7 @@ const extractData = (event) => {
         .trim()
         .match(/(http|https):\/\/[a-zA-Z0-9\-.]+(\/\S*)?/);
 
-    const link = linkMatch ? linkMatch[0] : undefined;
+    const link = linkMatch ? linkMatch[0].replace(/>$/, '') : undefined;
 
     return {
         message: text,

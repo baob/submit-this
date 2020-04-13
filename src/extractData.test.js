@@ -54,4 +54,10 @@ describe('extractData()', () => {
             expect(returnValue()).toHaveProperty('link', 'http://facebook.com');
         });
     });
+    describe('with a message with a link in slack markup without pipe with trailing slash ', () => {
+        it('returns the link embedded in the message', () => {
+            eventText = '<@U0E0G11N9J5>  <http://facebook.com/>';
+            expect(returnValue()).toHaveProperty('link', 'http://facebook.com/');
+        });
+    });
 });
