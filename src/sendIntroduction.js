@@ -12,7 +12,7 @@ const sendIntroduction = async (event, web) => {
         `Hi. I am a bot running the ${name} software,  version ${version}.`,
         '(I am presently in pre-beta status, please be gentle with me)',
         'I am here to help with submitting your data',
-        'Send me a message with the text you want to submit, and I will get you started.',
+        'Send me a message with the link you want to submit, and I will get you started.',
     ].join('\n');
 
     console.log('---- response:', response);

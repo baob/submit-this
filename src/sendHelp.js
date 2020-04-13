@@ -7,7 +7,7 @@ const sendHelp = async (event, web) => {
 
     const response = [
         'I am here to help with submitting your data',
-        'Send me a message with the text you want to submit, and I will get you started.',
+        'Send me a message with the link you want to submit, and I will get you started.',
         'Alternatively try sending me these commands:',
         '   help',
         '   ?',
