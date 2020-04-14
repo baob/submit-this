@@ -12,14 +12,6 @@
 
 ## on a slack thread, takes the main message of the thread if no content
 
-## Exploit OpenGraph
-
-possibly using [openGraphScraper](https://github.com/jshemas/openGraphScraper) ( guide [here](https://davidwalsh.name/open-graph-data-nodejs) )
-
-## vscode
-
-test coverage and gutters
-
 ## flow
 
 can flow do anything useful (matching parameter lists ?) without needing babel.

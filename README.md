@@ -1,6 +1,16 @@
 # README
 
-submit-this is a simple slack bot that can take a slack message, and construct a link (to a website of your choice) with the message included as a query parameter, and send you a slack message including the link. Designed to be useful for prefilling forms.
+submit-this is a simple slack bot that can take a slack message, and construct a link (to a website of your choice) with query parameters derived from your message, and send you a slack message including the link. Designed to be useful for prefilling forms.
+
+So, you could send the bot a message
+
+    @submitthis here is the data for submission
+
+and the text "here is the data for submission" would be sent to the form. Alternatively the message
+
+    @submitthis http://an.intersting.website.com
+
+would result in the opengraph data from the website (title, description, image) being sent to the form
 
 ## Setup
 
@@ -42,6 +52,8 @@ Configure more environment variables (differently in development and production 
 - PORT - the port your server will run on
 - SUBMIT_MESSAGE_TEMPLATE - to customise the complete message created by the bot.  
 - SUBMIT_LINK_TEMPLATE - to customise the link created by the bot.  
+
+The message template in [.env.example](.env.example) is a full example of how this could be used with [airtable.com](https://airtable.com/), using opengraph data obtained from a link in the message you send to the bot.
 
 You may find [this formatting guide](https://api.slack.com/reference/surfaces/formatting#linking-urls) useful ... most importantly, it shows how to craft a message with a url linked from alternative text, since this bot will likely be creating long links.
 
