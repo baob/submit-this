@@ -6,6 +6,15 @@ const extractData = (event) => {
     ).trim();
     const atUser = `<@${event.user}>`;
 
+    const markedUpLinkMatch = text.match(/<(http.{4,199})\|.{4,199}>/);
+    if (markedUpLinkMatch) {
+        return {
+            message: text,
+            atUser,
+            link: markedUpLinkMatch[1],
+        };
+    }
+
     const linkMatch = event.text
         .trim()
         .match(/(http|https):\/\/[a-zA-Z0-9\-.]+(\/\S*)?/);

@@ -41,7 +41,7 @@ const processSubmission = async (event, web) => {
     }
     if (scraperError) {
         console.log('scraper error return:', scraperResponse);
-    };
+    }
 
     const messageTemplate = process.env.SUBMIT_MESSAGE_TEMPLATE;
     const linkTemplate = process.env.SUBMIT_LINK_TEMPLATE;
