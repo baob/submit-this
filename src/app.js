@@ -11,11 +11,11 @@ const app = () => {
     if (nodeEnv != 'production') {
         dotenv.config();
     }
-    const slackEventHeaders =
-        process.env.SLACK_EVENT_HEADERS &&
-        !BOOLEAN_STRING_NEGATIVES.includes(process.env.SLACK_EVENT_HEADERS)
-            ? true
-            : false;
+    const slackEventRetries =
+        process.env.SLACK_EVENT_RETRIES &&
+        BOOLEAN_STRING_NEGATIVES.includes(process.env.SLACK_EVENT_RETRIES)
+            ? false
+            : true;
 
     /*
         Set up the Event Listener
@@ -23,7 +23,10 @@ const app = () => {
 
     const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
     const port = process.env.PORT || 3000;
-    const eventAdapterOptions = { includeHeaders: slackEventHeaders };
+    const eventAdapterOptions = {
+        includeHeaders: true,
+        includeBody: true,
+    };
     console.log('eventAdapterOptions:', eventAdapterOptions);
     console.log(
         'creating event adapter:  createEventAdapter( <slackSigningSecret>, ',
@@ -52,8 +55,11 @@ const app = () => {
         Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
     */
 
-    const handleAppMentionCallback = (web) => (event) =>
-        handleAppMention(event, web);
+    const handleAppMentionCallback = (web) => (event, _body, headers) => {
+        console.log('slackEventRetries:', slackEventRetries);
+        console.log('headers:', headers);
+        return handleAppMention(event, web);
+    };
     slackEvents.on('app_mention', handleAppMentionCallback(web));
 
     // https://api.slack.com/events/member_joined_channel
