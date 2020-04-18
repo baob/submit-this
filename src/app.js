@@ -4,11 +4,18 @@ const handleAppMention = require('./handleAppMention');
 const dotenv = require('dotenv');
 const handleChannelJoined = require('./handleChannelJoined');
 
+const BOOLEAN_STRING_NEGATIVES = ['n', 'no', 'f', 'false'];
+
 const app = () => {
     const nodeEnv = process.env.NODE_ENV || 'development';
     if (nodeEnv != 'production') {
         dotenv.config();
     }
+    const slackEventHeaders =
+        process.env.SLACK_EVENT_HEADERS &&
+        !BOOLEAN_STRING_NEGATIVES.includes(process.env.SLACK_EVENT_HEADERS)
+            ? true
+            : false;
 
     /*
         Set up the Event Listener
@@ -16,7 +23,18 @@ const app = () => {
 
     const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
     const port = process.env.PORT || 3000;
-    const slackEvents = createEventAdapter(slackSigningSecret);
+    const eventAdapterOptions = { includeHeaders: slackEventHeaders };
+    console.log('eventAdapterOptions:', eventAdapterOptions);
+    console.log(
+        'creating event adapter:  createEventAdapter( <slackSigningSecret>, ',
+        eventAdapterOptions,
+        ' )'
+    );
+
+    const slackEvents = createEventAdapter(
+        slackSigningSecret,
+        eventAdapterOptions
+    );
 
     // All errors in listeners are caught here. If this weren't caught, the program would terminate.
     slackEvents.on('error', (error) => {
