@@ -54,6 +54,7 @@ const processSubmission = async (event, web) => {
         await web.chat.postMessage({
             text: `<@${event.user}> ${response}`,
             channel: event.channel,
+            thread_ts: event.thread_ts,
         });
     } catch (err) {
         console.log(
