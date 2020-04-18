@@ -1,6 +1,6 @@
 {
   "name": "submit-this",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "slack bot to generate \"submission\" urls",
   "main": "index.js",
   "author": "baob <coder@onesandthrees.com>",
