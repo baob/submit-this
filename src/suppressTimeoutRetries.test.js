@@ -31,8 +31,13 @@ describe('suppressTimeoutRetries()', () => {
         beforeEach(() => {
             headers = { 'x-slack-retry-num': 3, ...headers };
         });
-        it('returns true', () => {
+        it('when the retry reason is a timeout, returns true', () => {
+            headers = { 'x-slack-retry-reason': 'http_timeout', ...headers };
             expect(returnValue()).toBeTruthy();
+        });
+        it('when the retry reason is something other than a timeout, returns false', () => {
+            headers = { 'x-slack-retry-reason': 'something_else', ...headers };
+            expect(returnValue()).toBeFalsy();
         });
     });
 });

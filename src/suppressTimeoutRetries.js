@@ -1,10 +1,11 @@
 const suppressTimeoutRetries = (headers) => {
-
-
     if (headers['x-slack-retry-num']) {
-        return true;
+        if (headers['x-slack-retry-reason'] == 'http_timeout') {
+            return true;
+        } else {
+            return false;
+        }
     }
-
 
     return false;
 };
