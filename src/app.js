@@ -3,6 +3,7 @@ const { WebClient } = require('@slack/web-api');
 const handleAppMention = require('./handleAppMention');
 const dotenv = require('dotenv');
 const handleChannelJoined = require('./handleChannelJoined');
+const suppressTimeoutRetries = require('./suppressTimeoutRetries');
 
 const BOOLEAN_STRING_NEGATIVES = ['n', 'no', 'f', 'false'];
 
@@ -16,6 +17,7 @@ const app = () => {
         BOOLEAN_STRING_NEGATIVES.includes(process.env.SLACK_EVENT_RETRIES)
             ? false
             : true;
+    console.log('slackEventRetries:', slackEventRetries);
 
     /*
         Set up the Event Listener
@@ -56,8 +58,11 @@ const app = () => {
     */
 
     const handleAppMentionCallback = (web) => (event, _body, headers) => {
-        console.log('slackEventRetries:', slackEventRetries);
         console.log('headers:', headers);
+        if (!slackEventRetries && suppressTimeoutRetries(headers)) {
+            console.log('suppressing retry based on headers:', headers);
+            return;
+        }
         return handleAppMention(event, web);
     };
     slackEvents.on('app_mention', handleAppMentionCallback(web));
