@@ -3,12 +3,21 @@ const { WebClient } = require('@slack/web-api');
 const handleAppMention = require('./handleAppMention');
 const dotenv = require('dotenv');
 const handleChannelJoined = require('./handleChannelJoined');
+const suppressTimeoutRetries = require('./suppressTimeoutRetries');
+
+const BOOLEAN_STRING_NEGATIVES = ['n', 'no', 'f', 'false'];
 
 const app = () => {
     const nodeEnv = process.env.NODE_ENV || 'development';
     if (nodeEnv != 'production') {
         dotenv.config();
     }
+    const slackEventRetries =
+        process.env.SLACK_EVENT_RETRIES &&
+        BOOLEAN_STRING_NEGATIVES.includes(process.env.SLACK_EVENT_RETRIES)
+            ? false
+            : true;
+    console.log('slackEventRetries:', slackEventRetries);
 
     /*
         Set up the Event Listener
@@ -16,7 +25,21 @@ const app = () => {
 
     const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
     const port = process.env.PORT || 3000;
-    const slackEvents = createEventAdapter(slackSigningSecret);
+    const eventAdapterOptions = {
+        includeHeaders: true,
+        includeBody: true,
+    };
+    console.log('eventAdapterOptions:', eventAdapterOptions);
+    console.log(
+        'creating event adapter:  createEventAdapter( <slackSigningSecret>, ',
+        eventAdapterOptions,
+        ' )'
+    );
+
+    const slackEvents = createEventAdapter(
+        slackSigningSecret,
+        eventAdapterOptions
+    );
 
     // All errors in listeners are caught here. If this weren't caught, the program would terminate.
     slackEvents.on('error', (error) => {
@@ -34,8 +57,14 @@ const app = () => {
         Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
     */
 
-    const handleAppMentionCallback = (web) => (event) =>
-        handleAppMention(event, web);
+    const handleAppMentionCallback = (web) => (event, _body, headers) => {
+        console.log('headers:', headers);
+        if (!slackEventRetries && suppressTimeoutRetries(headers)) {
+            console.log('suppressing retry based on headers:', headers);
+            return;
+        }
+        return handleAppMention(event, web);
+    };
     slackEvents.on('app_mention', handleAppMentionCallback(web));
 
     // https://api.slack.com/events/member_joined_channel

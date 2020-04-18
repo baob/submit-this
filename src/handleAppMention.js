@@ -7,7 +7,7 @@ const handleAppMention = async (event, web) => {
     console.log(
         `Received a app_mention event: user ${event.user} in channel ${event.channel} says ${event.text}`
     );
-    // console.log('---- event:', event);
+    console.log('---- event:', event);
     // console.log('---- web:', web);
 
     const { message } = extractData(event);
